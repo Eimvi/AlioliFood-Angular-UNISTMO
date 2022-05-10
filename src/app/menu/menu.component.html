@@ -30,17 +30,17 @@
   <!--Container de platillos-->
   <div class="">
 
-    <ng-container *ngIf="1">
+    <ng-container *ngIf="catego == 'todos' || catego == 'almuerzos' ">
       <label for="exampleFormControlInput1" class="form-label h6"><strong>Almuerzos</strong></label>
       <app-platillos (enviarPedido)="obtenerPedido($event)" (restarPedido)="pedidoRestar($event)" [list]="almuerzo"></app-platillos>
     </ng-container>
 
-    <ng-container *ngIf="1">
+    <ng-container *ngIf="catego == 'todos' || catego == 'entradas'">
       <label for="exampleFormControlInput1" class="form-label h6"><strong>Entradas</strong></label>
       <app-platillos (enviarPedido)="obtenerPedido($event)" (restarPedido)="pedidoRestar($event)" [list]="entrada"></app-platillos>
     </ng-container>
 
-     <ng-container *ngIf="1">
+     <ng-container *ngIf="catego == 'todos' || catego == 'postres'">
       <label for="exampleFormControlInput1" class="form-label h6"><strong>Postres</strong></label>
       <app-platillos (enviarPedido)="obtenerPedido($event)" (restarPedido)="pedidoRestar($event)" [list]="postre"></app-platillos>
     </ng-container>
