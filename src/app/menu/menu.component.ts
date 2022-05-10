@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   almuerzo:Food[]=[];
   entrada:Food[]=[];
   postre:Food[]=[];
+  catego:String = 'todos';
 
   pedidoAlmuerzo:Pedido[]=[];
 
@@ -68,8 +69,6 @@ export class MenuComponent implements OnInit {
     })
     console.log(id)
     let food = this.pedidoAlmuerzo[id].cantidad--;
-
-    console.log(this.pedidoAlmuerzo)
   }
 
 }
