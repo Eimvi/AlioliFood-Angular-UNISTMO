@@ -1,0 +1,91 @@
+.border{
+  border-radius: 25px;
+}
+
+.textoTitulo{
+  font-size:smaller;
+  padding: 2dp;
+}
+
+.margenes{
+  padding-top: 10dp;
+}
+
+.foodImg{
+  overflow: hidden;
+
+}
+
+.top{
+  position: absolute;
+  width: 130px;
+  height: 40px;
+  margin-top: 118px;
+}
+
+.fa-star{
+  color: yellow;
+}
+
+.imga{
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+  position:absolute;
+  z-index: 0;
+}
+
+
+.carta{
+  max-width: 40%;
+  height: 150px;
+  margin-top: 1em;
+}
+
+@media(max-width:768px){
+  .carta{
+    max-width: 100%;
+  }
+}
+
+.botonUnidad{
+  max-width: 200px;
+  max-height: 50px;
+  background-color: #F8F8FA;
+  border-radius: 20px;
+}
+.botonMenos{
+  width: 30%;
+  display: inline-block;
+}
+.botonNumero{
+  width: 40%;
+  display: inline-block;
+}
+.botonMas{
+  width: 30%;
+  display: inline-block;
+}
+.bc{
+  background-color: #F8F8FA;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  font-size: 15dp;
+  border-radius: 50%;
+  border: 5pc;
+  border-color: #F8F8FA;
+  color: #838383;
+}
+
+.figc {
+    background-color: rgba(34, 34, 34, 0.635);
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+    border-radius: 0px 10px 25px 25px;
+    z-index: 1;
+
+}
+
