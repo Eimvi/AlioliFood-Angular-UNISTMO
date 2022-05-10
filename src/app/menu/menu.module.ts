@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component';
+import { PlatillosComponent } from './components/platillos/platillos.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
 
 
 @NgModule({
   declarations: [
-    MenuComponent
+    MenuComponent,
+    PlatillosComponent,
+    CategoriaComponent
   ],
   imports: [
     CommonModule,
