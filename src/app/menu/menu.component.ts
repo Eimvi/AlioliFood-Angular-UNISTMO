@@ -21,12 +21,8 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.food.getFood().subscribe(
       resp => {
-        console.log(resp)
         this.foods = resp;
         this.clasificar(this.foods);
-        console.log(this.almuerzo)
-        console.log(this.entrada)
-        console.log(this.postre)
       }
     );
   }
@@ -51,7 +47,6 @@ export class MenuComponent implements OnInit {
     const id = this.pedidoAlmuerzo.findIndex(item=>{
       return item.id == item2.id
     })
-    console.log(id)
     if(id == -1){
       const food2:Pedido={
         id: item2.id,
@@ -65,8 +60,6 @@ export class MenuComponent implements OnInit {
       let food = this.pedidoAlmuerzo[id].cantidad++;
 
     }
-
-    console.log(this.pedidoAlmuerzo)
   }
 
   pedidoRestar(item2:Food){

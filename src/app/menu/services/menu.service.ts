@@ -12,10 +12,6 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-
-  }
-
   getFood() {
     return this.http.get<Platillos>(`${this.URL}food`).pipe(
       map(comida => {
