@@ -1,0 +1,49 @@
+.cur{
+  border-radius: 50px 0 0 0;
+}
+.cur2{
+  border-radius: 0 0 50px 0;
+}
+.bgcolor{
+  background-color: #ebddba;
+}
+
+button:valid{
+  background: #4be58b;
+  color: black;
+  border: none;
+}
+
+
+.text-danger{
+  font-size: 11px;
+}
+
+.bg{
+  background-color: #F6F6F6;
+
+}
+
+input:focus{
+  border-color: black;
+  box-shadow: none;
+}
+
+input{
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  border-radius: 15px;
+  border-color: white;
+}
+
+.bcolor3{
+  background-color: #373737;
+  width: 100%;
+  height: 60px;
+  border-radius: 15px;
+  border: 5pc;
+  align-items: center;
+  color:white;
+}
+
