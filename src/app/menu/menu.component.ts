@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/services/auth.service';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,10 +10,9 @@ import { AuthService } from '../auth/services/auth.service';
 })
 export class MenuComponent implements OnInit {
   pedidoAlmuerzo:Pedido[]=[];
-  constructor(private router: Router, private authService:AuthService) { }
+  constructor(private router: Router, private authService:AuthService, private menuService:MenuService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout(){
     this.authService.logout();
@@ -20,9 +20,7 @@ export class MenuComponent implements OnInit {
   }
 
   verpedidos(){
-    if(this.pedidoAlmuerzo.length > 0){
-      this.router.navigateByUrl('verpedidos');
-    }
-
+    this.menuService.guardarPlatillos(this.pedidoAlmuerzo);
   }
+
 }
