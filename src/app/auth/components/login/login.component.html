@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="bg">
+  <div class="bgcolor cur2 pt-4 pb-4">
+    <div class="row w-100 justify-content-center">
+      <div class="col-2  text-center ">
+        <label for="exampleFormControlInput1" class="form-label h4"><strong>Menú</strong></label>
+      </div>
+    </div>
+  </div>
+  <div class="bgcolor">
+    <div class="cur bg">
+      <div class="container" >
+        <div class="row justify-content-center ">
+          <div class="col-8  text-center mt-5">
+            <label for="exampleFormControlInput1" class="form-label h6">Para ingresar al menú coloca tu  <strong>número de teléfono</strong></label>
+          </div>
+        </div>
+        <div class="container-sm">
+          <form [formGroup]="form" (ngSubmit)="login()"> <!--Se crea FormGroup y se usa ngSubmit-->
+            <label for="exampleFormControlInput1" class="form-label"><strong>Teléfono</strong></label>
+            <div class="mb-4 form">
+              <input formControlName="telefono" type="tel" id="Telefono" class="form-control form-control-lg" placeholder="55 32308394"/>
+              <div class="text-danger" *ngIf="form.get('telefono')?.hasError('required')&& form.get('telefono')?.touched">
+                *El número de teléfono es requerido.
+              </div>
+              <div class="text-danger" *ngIf="form.get('telefono')?.hasError('pattern')">
+                *El número de teléfono es inválido.
+              </div>
+              <div class="text-danger" *ngIf="loading">
+                *El número no está registrado.
+              </div>
+            </div>
+            <div class="mb-3 form">
+            <button [disabled]="form.invalid" type="submit" class="bcolor3">Entrar</button>
+            </div>
+          </form>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-8  text-center mt-5">
+            <span class="material-icons">
+              help_outline
+              </span>
+          </div>
+          <div class="col-8  text-center  mb-5">
+            <a href="#" class="link-primary">¿Necesitas ayuda?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
