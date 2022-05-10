@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
 
   verpedidos(){
     this.menuService.guardarPlatillos(this.pedidoAlmuerzo);
+    this.router.navigateByUrl('verpedidos');
   }
 
 }
