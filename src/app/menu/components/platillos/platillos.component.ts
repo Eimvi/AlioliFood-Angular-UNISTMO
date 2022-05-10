@@ -1,4 +1,4 @@
-import { Component,Input, Output, EventEmitter, OnInit, ViewChildren, QueryList, ElementRef, Renderer2 } from '@angular/core';
+import { Component,Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { Food, Pedido } from '../../interfaces/platillos';
 
@@ -14,7 +14,7 @@ export class PlatillosComponent implements OnInit {
 
   plato:number[]=[]
 
-  constructor(private food:MenuService, private renderer: Renderer2) { }
+  constructor(private food:MenuService) { }
 
   agregar(item:Food, id:number){
     if(this.plato[id]==undefined){
