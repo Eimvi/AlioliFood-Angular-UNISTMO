@@ -9,12 +9,9 @@
       </div>
     </div>
   </div>
-   <!--Container de botones de categorias-->
   <div class="container">
     <app-categoria [list]="categories" (enviartodo)="enviartodos($event)"></app-categoria>
-    <!--app-categoria (enviartodo)="enviartodos($event)"></app-categoria-->
   </div>
-<!--Container de etiqueta agregar-->
   <div class="container">
     <div class=" row pt-4 pb-2 align-items-center text-center">
       <div class="col-9">
@@ -22,25 +19,22 @@
       </div>
     </div>
   </div>
-  <!--Container de platillos-->
   <div class="">
-
-    <ng-container *ngIf="catego[0]">
+    <ng-container *ngIf="catego == 'todos' || catego == 'almuerzos' ">
       <label for="exampleFormControlInput1" class="form-label h6"><strong>Almuerzos</strong></label>
       <app-platillos [list]="almuerzo"></app-platillos>
     </ng-container>
 
-    <ng-container *ngIf="catego[1]">
+    <ng-container *ngIf="catego == 'todos' || catego == 'entradas'">
       <label for="exampleFormControlInput1" class="form-label h6"><strong>Entradas</strong></label>
       <app-platillos [list]="entrada"></app-platillos>
     </ng-container>
 
-     <ng-container *ngIf="catego[2]">
+    <ng-container *ngIf="catego == 'todos' || catego == 'postres'">
       <label for="exampleFormControlInput1" class="form-label h6"><strong>Postres</strong></label>
       <app-platillos [list]="postre"></app-platillos>
     </ng-container>
 
-    <!--Boton de ver pedido-->
     <div >
       <button type="button" class="bcolor3 mb-4 mt-3"><strong>Ver pedido</strong></button>
     </div>
