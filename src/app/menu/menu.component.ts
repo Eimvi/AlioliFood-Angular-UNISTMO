@@ -5,8 +5,7 @@ import { AuthService } from '../auth/services/auth.service';
 import { MenuService } from './services/menu.service';
 
 import { Category } from './interfaces/categoria';
-import { Food} from './interfaces/platillos';
-
+import { Food, Pedido } from './interfaces/platillos';
 
 @Component({
   selector: 'app-menu',
@@ -15,17 +14,13 @@ import { Food} from './interfaces/platillos';
 })
 
 export class MenuComponent implements OnInit {
-
   foods:Food[]=[];
   almuerzo:Food[]=[];
   entrada:Food[]=[];
   postre:Food[]=[];
+  catego:string = 'todos';
 
-  categories:Category[]=[];
-  
   pedidoAlmuerzo:Pedido[]=[];
-
-  catego:string='todos';
 
   constructor(private router: Router, private authService:AuthService, private menuService:MenuService) { }
 
@@ -37,11 +32,37 @@ export class MenuComponent implements OnInit {
       }
     );
 
-    this.category.getCategory().subscribe(
+    this.menuService.getCategory().subscribe(
       resp => {
         this.categories = resp;
       }
     );
+
+  }
+
+  obtenerPedido(item2:Food){
+    const id = this.pedidoAlmuerzo.findIndex(item=>{
+      return item.id == item2.id
+    })
+    if(id == -1){
+      const food2:Pedido={
+        id: item2.id,
+        title: item2.title,
+        price: item2.price,
+        image_url: item2.image_url,
+        cantidad: 1
+      }
+      this.pedidoAlmuerzo.push(food2)
+    }else{
+      let food = this.pedidoAlmuerzo[id].cantidad++;
+    }
+  }
+
+  pedidoRestar(item2:Food){
+    const id = this.pedidoAlmuerzo.findIndex(item=>{
+      return item.id == item2.id
+    })
+    let food = this.pedidoAlmuerzo[id].cantidad--;
   }
 
   logout(): void{
@@ -70,7 +91,7 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  enviartodos(cate:string): void{
+  enviarTodos(cate:string): void{
     this.catego=cate;
   }
 }

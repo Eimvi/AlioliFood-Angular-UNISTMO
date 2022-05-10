@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 import { Platillos } from '../interfaces/platillos';
 import { Categoria } from '../interfaces/categoria';
 
@@ -8,7 +10,7 @@ import { Categoria } from '../interfaces/categoria';
   providedIn: 'root'
 })
 export class MenuService {
-
+  private readonly URL =  environment.urlApi;
   pedido: Pedido[] = [];
 
   constructor(private http: HttpClient) { }
