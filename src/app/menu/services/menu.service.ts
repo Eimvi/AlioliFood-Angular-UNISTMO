@@ -8,13 +8,10 @@ import { Categoria } from '../interfaces/categoria';
   providedIn: 'root'
 })
 export class MenuService {
-  private readonly URL = 'https://alioli-food-api.herokuapp.com/';
+
+  pedido: Pedido[] = [];
 
   constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-
-  }
 
   getFood() {
     return this.http.get<Platillos>(`${this.URL}food`).pipe(
@@ -32,4 +29,7 @@ export class MenuService {
     )
   }
 
+  guardarPlatillos(orden:Pedido[]){
+    this.pedido = orden;
+  }
 }

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../auth/services/auth.service';
 import { MenuService } from './services/menu.service';
-import { Food} from './interfaces/platillos';
+
 import { Category } from './interfaces/categoria';
+import { Food} from './interfaces/platillos';
+
 
 @Component({
   selector: 'app-menu',
@@ -10,19 +15,22 @@ import { Category } from './interfaces/categoria';
 })
 
 export class MenuComponent implements OnInit {
+
   foods:Food[]=[];
   almuerzo:Food[]=[];
   entrada:Food[]=[];
   postre:Food[]=[];
 
   categories:Category[]=[];
+  
+  pedidoAlmuerzo:Pedido[]=[];
 
   catego:string='todos';
 
-  constructor(private food:MenuService, private category:MenuService ) { }
+  constructor(private router: Router, private authService:AuthService, private menuService:MenuService) { }
 
   ngOnInit(): void {
-    this.food.getFood().subscribe(
+    this.menuService.getFood().subscribe(
       resp => {
         this.foods = resp;
         this.clasificar(this.foods);
@@ -36,7 +44,17 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  clasificar(food:Food[]):void{
+  logout(): void{
+    this.authService.logout();
+    this.router.navigateByUrl('auth/login');
+  }
+
+  verpedidos(): void{
+    this.menuService.guardarPlatillos(this.pedidoAlmuerzo);
+    this.router.navigateByUrl('ver-orden');
+  }
+
+  clasificar(food:Food[]): void{
     food.forEach((e)=>{
       switch (e.category.id){
         case 1:
@@ -52,7 +70,7 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  enviartodos(cate:string){
+  enviartodos(cate:string): void{
     this.catego=cate;
   }
 }
