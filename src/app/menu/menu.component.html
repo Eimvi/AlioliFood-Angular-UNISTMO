@@ -10,11 +10,11 @@
     </div>
   </div>
 
-    
+
   <div class="container">
-    <app-categoria [list]="categories" (enviartodo)="enviartodos($event)"></app-categoria>
+    <app-categoria [list]="categories" (enviartodo)="enviarTodos($event)"></app-categoria>
   </div>
-    
+
 <!--Container de etiqueta agregar-->
   <div class="container">
     <div class=" row pt-4 pb-2 align-items-center text-center">
@@ -45,7 +45,7 @@
     <!--Boton de ver pedido-->
     <div >
       <button (click)="verpedidos()" [disabled]="pedidoAlmuerzo.length == 0" type="button" class="bcolor3 mb-4 mt-3"><strong>Ver pedido</strong></button>
-    </div> 
-    
+    </div>
+
   </div>
 </div>

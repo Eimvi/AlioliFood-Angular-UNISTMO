@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
   almuerzo:Food[]=[];
   entrada:Food[]=[];
   postre:Food[]=[];
+  categories:Category[]=[];
   catego:string = 'todos';
 
   pedidoAlmuerzo:Pedido[]=[];
