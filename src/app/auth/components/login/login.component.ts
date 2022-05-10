@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tel } from '../../auth.interface';
 import { AuthService } from '../../services/auth.service';
@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router,private fb:FormBuilder,private authService:AuthService ) { }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      telefono:['',[Validators.required,Validators.pattern("[0-9 ]{10}")]]            //Hacemos uso de validators requerido y que sean 10 numeros entre el 0 y 9
+    });
   }
 
   login(){ //Función login() de la clase
