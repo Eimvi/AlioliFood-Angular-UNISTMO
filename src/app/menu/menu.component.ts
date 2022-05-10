@@ -1,9 +1,6 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from './services/menu.service';
 import { Food} from './interfaces/platillos';
-
 import { Category } from './interfaces/categoria';
 
 @Component({
@@ -20,29 +17,20 @@ export class MenuComponent implements OnInit {
 
   categories:Category[]=[];
 
-  /*cate1:boolean=false;
-  cate2:boolean=false;
-  cate3:boolean=false;*/
-
-  catego:boolean[]= [true, true, true];
+  catego:string='todos';
 
   constructor(private food:MenuService, private category:MenuService ) { }
 
   ngOnInit(): void {
     this.food.getFood().subscribe(
       resp => {
-        console.log(resp)
         this.foods = resp;
         this.clasificar(this.foods);
-        console.log(this.almuerzo)
-        console.log(this.entrada)
-        console.log(this.postre)
       }
     );
 
     this.category.getCategory().subscribe(
       resp => {
-        console.log(resp)
         this.categories = resp;
       }
     );
@@ -64,14 +52,7 @@ export class MenuComponent implements OnInit {
     })
   }
 
-
-  enviartodos(cate:boolean[]){
+  enviartodos(cate:string){
     this.catego=cate;
   }
-
-  //todos1(){
-  //  this.cate1=true;
-   // this.cate2=false;
-   // this.cate3=false;
- // }
 }

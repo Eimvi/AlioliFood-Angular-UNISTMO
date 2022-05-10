@@ -11,36 +11,32 @@ import { Category } from '../../interfaces/categoria';
 })
 export class CategoriaComponent implements OnInit {
 
-  cate:boolean[]= [true, true, true];
+  cate:string='todos';
 
   @Input()
   list:Category[] = [];
 
   @Output()
-  enviartodo: EventEmitter<boolean[]> = new EventEmitter<boolean[]>();
+  enviartodo: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private category:MenuService) { }
 
   ngOnInit(): void {
   }
 
-  todos(){
-    this.enviartodo.emit(this.cate);
-  }
-
   opcionCategoria(id:number){
     switch(id){
       case 0:
-          this.cate=[true,true,true];
+          this.cate='todos';
       break;
       case 1:
-          this.cate=[true,false,false];
+          this.cate='almuerzos';
       break;
       case 2:
-          this.cate=[false,true,false];
+          this.cate='entradas';
       break;
       case 3:
-          this.cate=[false,false,true];
+          this.cate='postres';
       break;
     }
 
