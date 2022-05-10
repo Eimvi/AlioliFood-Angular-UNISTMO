@@ -67,7 +67,6 @@ export class MenuComponent implements OnInit {
     const id = this.pedidoAlmuerzo.findIndex(item=>{
       return item.id == item2.id
     })
-    console.log(id)
     let food = this.pedidoAlmuerzo[id].cantidad--;
   }
 
