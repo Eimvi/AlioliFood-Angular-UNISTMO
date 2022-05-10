@@ -15,7 +15,6 @@ export class MenuService {
   getFood() {
     return this.http.get<Platillos>(`${this.URL}food`).pipe(
       map(comida => {
-        console.log(comida)
         return comida.body.foods
       })
     )
