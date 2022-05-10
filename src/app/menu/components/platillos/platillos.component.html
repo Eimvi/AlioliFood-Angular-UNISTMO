@@ -30,7 +30,16 @@
                   <button class="bc" (click)=" eliminar(item, item.id)" [disabled]="!plato[item.id]">-</button>
                 </div>
                 <div class="botonNumero text-center">
-                  <p class="">{{plato[item.id]}}</p>
+                  <ng-container *ngIf="plato[item.id]>0">
+                    <p class="">{{plato[item.id]}}</p>
+                  </ng-container>
+
+                  <ng-template #Success>
+                    <ng-container *ngIf="plato[item.id]==0">
+                      <p class="">""</p>
+                    </ng-container>
+                  </ng-template>
+
                 </div>
                 <div class="botonMas">
                   <button class="bc" (click)="agregar(item, item.id)" >+</button>
