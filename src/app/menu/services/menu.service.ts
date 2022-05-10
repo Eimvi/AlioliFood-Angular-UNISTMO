@@ -8,6 +8,6 @@ export class MenuService {
   constructor() { }
 
   guardarPlatillos(orden:Pedido[]){
-    this.pedido = order;
+    this.pedido = orden;
   }
 }
