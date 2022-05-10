@@ -8,7 +8,7 @@
 
             <ng-container *ngIf="item.popular">
               <div class="top">
-                <p class="figc mb-0 p-2"><i class="fa fa-star px-2"></i>MUY TOP</p>
+                <p class="figc mb-0 p-2"><i class="fa fa-star"></i>MUY TOP</p>
               </div>
             </ng-container>
       </div>
@@ -17,10 +17,10 @@
         <div class="row justify-content-center">
           <div class="col-6">
             <div class="row">
-              <p class="textoTitulo pt-4 mb-0"><strong>{{item.title | titlecase}}</strong></p>
+              <p class="textoTitulo pt-2 mb-0"><strong>{{item.title | titlecase}}</strong></p>
             </div>
             <div class="row ">
-              <p class="pt-2 mb-0"><small class="text-muted" >{{item.subcategory | titlecase}}</small></p>
+              <p class="pt-1 mb-0 text-muted textCuerpo">{{item.subcategory | titlecase}}</p>
             </div>
           </div>
           <div class="col-6 justify-content-center">
@@ -51,10 +51,10 @@
 
         <div class="row">
           <div class="col-6">
-            <p class="text-white pt-2 mb-0"><small class="text-muted">Precio:</small></p>
+            <p class="text-white pt-1 mb-0 text-muted textCuerpo">Precio:</p>
           </div>
           <div class="col-6 text-center">
-            <p class="pt-2 mb-0"><strong>{{item.price | currency}}</strong></p>
+            <p class="pt-1 mb-0 textCuerpo"><strong>{{item.price | currency}}</strong></p>
           </div>
         </div>
 
