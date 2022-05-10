@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MenuService {
-
+  pedido: Pedido[] = [];
   constructor() { }
+
+  guardarPlatillos(orden:Pedido[]){
+    this.pedido = order;
+  }
 }
