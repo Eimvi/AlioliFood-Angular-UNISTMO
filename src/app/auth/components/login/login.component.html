@@ -15,17 +15,17 @@
           </div>
         </div>
         <div class="container-sm">
-          <form [formGroup]="form" (ngSubmit)="login()"> <!--Se crea FormGroup y se usa ngSubmit-->
+          <form id="initForm" [formGroup]="form" (ngSubmit)="login()"> <!--Se crea FormGroup y se usa ngSubmit-->
             <label for="exampleFormControlInput1" class="form-label"><strong>Teléfono</strong></label>
             <div class="mb-4 form">
               <input formControlName="telefono" type="tel" id="Telefono" class="form-control form-control-lg" placeholder="55 32308394"/>
-              <div class="text-danger" *ngIf="form.get('telefono')?.hasError('required')&& form.get('telefono')?.touched">
+              <div id="tel-required" class="text-danger" *ngIf="form.get('telefono')?.hasError('required')&& form.get('telefono')?.touched">
                 *El número de teléfono es requerido.
               </div>
-              <div class="text-danger" *ngIf="form.get('telefono')?.hasError('pattern')">
+              <div id="tel-invalid" class="text-danger" *ngIf="form.get('telefono')?.hasError('pattern')">
                 *El número de teléfono es inválido.
               </div>
-              <div class="text-danger" *ngIf="loading">
+              <div id="tel-error" class="text-danger" *ngIf="loading">
                 *El número no está registrado.
               </div>
             </div>
