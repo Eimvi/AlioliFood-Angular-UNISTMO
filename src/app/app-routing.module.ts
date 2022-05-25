@@ -8,6 +8,7 @@ const routes: Routes = [
   {
     path: 'menu', loadChildren: () => import('./menu/menu.module').then(m => m.MenuModule)
   },
+  { path: 'verpedidos', loadChildren: () => import('./ver-pedidos/ver-pedidos.module').then(m => m.VerPedidosModule) },
   {
     path: '',
     redirectTo: 'auth',
