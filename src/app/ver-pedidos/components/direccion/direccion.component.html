@@ -67,7 +67,7 @@
             <ng-container *ngIf="!botonSelecc; else templateA">
 
             <div class="btn card Rectangulo">
-              <div (click)="obtenerdir()" class="posicion">
+              <div (click)="obtenerDireccion()" class="posicion">
                 <input  name= "dir" type="radio">
                 <p class="colr">Otra ubicación</p>
               </div>
@@ -100,7 +100,7 @@
                       <div class="col-9">
                         <input formControlName="colonia" type="text" id="calle" class="form-control form-control-lg" />
                       </div>
-                      |<div class="text-danger" *ngIf="formDireccion.get('colonia')?.hasError('required')&& formDireccion.get('colonia')?.touched">
+                      <div class="text-danger" *ngIf="formDireccion.get('colonia')?.hasError('required')&& formDireccion.get('colonia')?.touched">
                         *El nombre de la colonia es requerido.
                       </div>
                     </div>
