@@ -13,15 +13,11 @@ export class DireccionComponent implements OnInit {
   clic:boolean=false;
   error:boolean= false;
   confir:boolean=false;
-  direccionG:any;
+  direccionG!:string|null;
   bandera:boolean=false;
-
-  mostrardir:boolean= false;
-
+  mostrarDir:boolean= false;
 
   constructor(private fb:FormBuilder,private ubicacionService:UbicacionService) { }
-
-
 
   ngOnInit(): void {
     this.formDireccion = this.fb.group({
@@ -30,21 +26,29 @@ export class DireccionComponent implements OnInit {
     });
   }
 
-
-
   obtenerpermiso(){
-    this.error=this.ubicacionService.getLocalizacion();
+    this.ubicacionService.getLocalizacion().subscribe(
+      resp => {
+        this.error = resp;
+        this.ubicacionService.getDireccion().subscribe(
+          resp => {
+            this.direccionG = resp;
+            this.mostrarDir=true;
+          }
+        )
+      }
+    )
+
     if(localStorage.getItem('dir')){
-      this.direccionG = localStorage.getItem('dir');
-      this.mostrardir=true;
+      this.mostrarDir=true;
+      this.clic=true;
     }
-    this.clic=true;
     this.botonSelecc=false;
     this.bandera=true;
   }
 
   obtenerdir(){
-    this.mostrardir=false;
+    this.mostrarDir=false;
     this.clic=false;
     this.botonSelecc=true;
     this.error=false;
@@ -53,13 +57,11 @@ export class DireccionComponent implements OnInit {
 
   confirmar(){
     this.confir=true;
-if(this.bandera){
-  this.direccionG = localStorage.getItem('dir');
-}else{
-  this.direccionG=`${this.formDireccion.get('calle')?.value}, ${this.formDireccion.get('colonia')?.value}`;
-
+    if(this.bandera){
+      this.direccionG = localStorage.getItem('dir');
+    }else{
+      this.direccionG=`${this.formDireccion.get('calle')?.value}, ${this.formDireccion.get('colonia')?.value}`;
     localStorage.setItem('direccion',this.direccionG.toString());
-    console.log(this.direccionG);
 }
 
 

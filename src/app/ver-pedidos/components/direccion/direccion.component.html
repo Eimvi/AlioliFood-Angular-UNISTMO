@@ -35,7 +35,7 @@
         <label for="recipient-name" class="col-form-label"><strong>Selecciona la dirección de envio</strong> </label>
         <form>
 
-          <ng-container *ngIf="mostrardir; else templateX">
+          <ng-container *ngIf="mostrarDir; else templateX">
 
             <div class="card2 Rectangulod">
               <div (click)="obtenerpermiso()" class="row">
@@ -99,9 +99,9 @@
                       </div>
                       <div class="col-9">
                         <input formControlName="colonia" type="text" id="calle" class="form-control form-control-lg" />
-                        <div class="text-danger" *ngIf="formDireccion.get('colonia')?.hasError('required')&& formDireccion.get('colonia')?.touched">
-                          *El nombre de la colonia es requerido.
-                        </div>
+                      </div>
+                      |<div class="text-danger" *ngIf="formDireccion.get('colonia')?.hasError('required')&& formDireccion.get('colonia')?.touched">
+                        *El nombre de la colonia es requerido.
                       </div>
                     </div>
                   </form>
