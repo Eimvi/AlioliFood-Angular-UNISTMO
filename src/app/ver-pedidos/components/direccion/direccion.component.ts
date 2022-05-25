@@ -13,7 +13,10 @@ export class DireccionComponent implements OnInit {
   clic:boolean=false;
   error:boolean= false;
   confir:boolean=false;
-  direccionG!:String;
+  direccionG:any;
+  bandera:boolean=false;
+
+  mostrardir:boolean= false;
 
 
   constructor(private fb:FormBuilder,private ubicacionService:UbicacionService) { }
@@ -30,28 +33,39 @@ export class DireccionComponent implements OnInit {
 
 
   obtenerpermiso(){
-
     this.error=this.ubicacionService.getLocalizacion();
+    if(localStorage.getItem('dir')){
+      this.direccionG = localStorage.getItem('dir');
+      this.mostrardir=true;
+    }
     this.clic=true;
     this.botonSelecc=false;
+    this.bandera=true;
   }
 
   obtenerdir(){
-
+    this.mostrardir=false;
     this.clic=false;
     this.botonSelecc=true;
     this.error=false;
-
-
+    this.bandera=false;
   }
 
   confirmar(){
     this.confir=true;
-
-    this.direccionG=`${this.formDireccion.get('calle')?.value}, ${this.formDireccion.get('colonia')?.value}`;
+if(this.bandera){
+  this.direccionG = localStorage.getItem('dir');
+}else{
+  this.direccionG=`${this.formDireccion.get('calle')?.value}, ${this.formDireccion.get('colonia')?.value}`;
 
     localStorage.setItem('direccion',this.direccionG.toString());
     console.log(this.direccionG);
+}
+
+
+
+
+
   }
 
 }
