@@ -26,23 +26,20 @@ export class DireccionComponent implements OnInit {
     });
   }
 
-  obtenerpermiso(){
+  obtenerPermiso(){
     this.ubicacionService.getLocalizacion().subscribe(
       resp => {
         this.error = resp;
         this.ubicacionService.getDireccion().subscribe(
           resp => {
             this.direccionG = resp;
-            this.mostrarDir=true;
+            this.mostrarDir= !this.error;
+            this.clic=!this.error;
           }
         )
       }
     )
 
-    if(localStorage.getItem('dir')){
-      this.mostrarDir=true;
-      this.clic=true;
-    }
     this.botonSelecc=false;
     this.bandera=true;
   }
@@ -61,7 +58,7 @@ export class DireccionComponent implements OnInit {
       this.direccionG = localStorage.getItem('dir');
     }else{
       this.direccionG=`${this.formDireccion.get('calle')?.value}, ${this.formDireccion.get('colonia')?.value}`;
-    localStorage.setItem('direccion',this.direccionG.toString());
+    localStorage.setItem('dir',this.direccionG.toString());
 }
 
 

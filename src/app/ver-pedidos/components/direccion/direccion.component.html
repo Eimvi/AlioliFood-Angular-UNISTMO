@@ -38,7 +38,7 @@
           <ng-container *ngIf="mostrarDir; else templateX">
 
             <div class="card2 Rectangulod">
-              <div (click)="obtenerpermiso()" class="row">
+              <div (click)="obtenerPermiso()" class="row">
                 <div class="col-2 posicion m-2">
                   <input name="dir" type="radio" checked>
                 </div>
@@ -52,7 +52,7 @@
 
           <ng-template #templateX>
             <div class="btn card Rectangulo">
-              <div (click)="obtenerpermiso()" class="posicion">
+              <div (click)="obtenerPermiso()" class="posicion">
                 <input  name="dir" type="radio">
                 <p class="colr">Mi ubicación actual</p>
 
