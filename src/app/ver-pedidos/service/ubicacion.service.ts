@@ -15,7 +15,7 @@ export class UbicacionService {
   private readonly URL = environment.urlApi;
   error:boolean=false;
   name:string = 'Angular';
-  Body!:Coor;
+  coordenadas!:Coor;
   lat!:number;
   lng!:number;
   bandera: Subject<boolean> = new Subject<boolean>();
@@ -29,7 +29,7 @@ export class UbicacionService {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: any) => {
         if (position) {
-          this.Body={lat:position.coords.latitude,long:position.coords.longitude};
+          this.coordenadas={lat:position.coords.latitude,long:position.coords.longitude};
           this.getAdrres().subscribe(
             resp=>{
               this.dir=resp;
@@ -50,7 +50,7 @@ export class UbicacionService {
   }
 
   getAdrres(){
-    return this.http.post<Ubicacion>(`${this.URL}order/get-location`,this.Body).pipe(
+    return this.http.post<Ubicacion>(`${this.URL}order/get-location`,this.coordenadas).pipe(
       map(resp =>{
         return resp.results;
       })
