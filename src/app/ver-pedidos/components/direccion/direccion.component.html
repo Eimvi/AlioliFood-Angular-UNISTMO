@@ -1,0 +1,122 @@
+<div class="pt-4">
+  <ng-container *ngIf="!confir; else templateBtnD">
+    <button type="button" class="btn btn-outline-secondary bcRP mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Agregar dirección de envio <i class="bi bi-plus"></i></button>
+  </ng-container>
+  <ng-template #templateBtnD>
+    <button type="button" class="btn btn-outline-secondary bcRPV mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">
+      <div class="row ">
+        <div class="col-2 pt-2 ">
+          <i class="bi bi-geo-alt "></i>
+        </div>
+        <div class="col-8">
+          <p class="tu">Mi ubicación actual</p>
+          <p class="u">{{direccionG}}</p>
+        </div>
+        <div class="col-1 ">
+          <i class="bi bi-chevron-down"></i>
+        </div>
+      </div>
+    </button>
+  </ng-template>
+</div>
+<!--Boton desabilitado-->
+
+<!--Boton habilitado con ubicación-->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header borderColorW">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="bi bi-chevron-left"></i></button>
+        <p class="modal-title titulo px-3" id="exampleModalLabel">Regresar</p>
+      </div>
+      <div class="modal-body">
+        <label for="recipient-name" class="col-form-label"><strong>Selecciona la dirección de envio</strong> </label>
+        <form>
+
+          <ng-container *ngIf="mostrarDir; else templateX">
+
+            <div class="card2 Rectangulod">
+              <div (click)="obtenerPermiso()" class="row">
+                <div class="col-2 posicion m-2">
+                  <input name="dir" type="radio" checked>
+                </div>
+                <div class="col-9 ">
+                  <p class="newstyle mt-2">Mi ubicación actual</p>
+                  <p class="msj">{{direccionG}}</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #templateX>
+            <div class="btn card Rectangulo">
+              <div (click)="obtenerPermiso()" class="posicion">
+                <input  name="dir" type="radio">
+                <p class="colr">Mi ubicación actual</p>
+
+              </div>
+            </div>
+
+          </ng-template>
+
+            <div id="txt" class="text-danger" *ngIf="error">
+              <p>*No se aceptaron los permisos de ubicación</p>
+            </div>
+            <ng-container *ngIf="!botonSelecc; else templateA">
+
+            <div class="btn card Rectangulo">
+              <div (click)="obtenerDireccion()" class="posicion">
+                <input  name= "dir" type="radio">
+                <p class="colr">Otra ubicación</p>
+              </div>
+            </div>
+            </ng-container>
+            <ng-template #templateA>
+              <div class="card2 Rectangulod">
+                <div class="posicion2">
+                  <div class="posicion m-2">
+                    <input name="dir" type="radio" checked>
+                    <p class="newstyle">Otra ubicación</p>
+                  </div>
+
+                  <form [formGroup]="formDireccion" class="m-2">
+                    <div class="row inputs">
+                      <div class="col-2">
+                        <label for="exampleFormControlInput1" class="form-label">Calle</label>
+                      </div>
+                      <div class="col-9">
+                        <input formControlName="calle" type="text" id="calle" class="form-control form-control-lg" />
+                      </div>
+                      <div class="text-danger" *ngIf="formDireccion.get('calle')?.hasError('required')&& formDireccion.get('calle')?.touched">
+                        *El nombre de la calle es requerido.
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-2">
+                        <label for="exampleFormControlInput1" class="form-label">Colonia</label>
+                      </div>
+                      <div class="col-9">
+                        <input formControlName="colonia" type="text" id="calle" class="form-control form-control-lg" />
+                      </div>
+                      <div class="text-danger" *ngIf="formDireccion.get('colonia')?.hasError('required')&& formDireccion.get('colonia')?.touched">
+                        *El nombre de la colonia es requerido.
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </ng-template>
+
+
+        </form>
+      </div>
+      <div class="modal-footer borderColorW">
+        <button type="button" class="btn bc2" *ngIf="!clic && formDireccion.invalid ">Confirmar</button>
+        <button (click)="confirmar()"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat" type="button" class="btn bcolor3" *ngIf="clic || !formDireccion.invalid">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
