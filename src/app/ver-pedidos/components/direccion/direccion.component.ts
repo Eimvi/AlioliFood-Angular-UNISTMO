@@ -47,7 +47,7 @@ export class DireccionComponent implements OnInit {
     this.bandera=true;
   }
 
-  obtenerdir(){
+  obtenerDireccion(){
     this.mostrarDir=false;
     this.clic=false;
     this.botonSelecc=true;
