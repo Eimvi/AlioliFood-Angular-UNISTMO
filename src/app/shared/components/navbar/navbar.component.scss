@@ -1,0 +1,42 @@
+.navBar{
+  position: absolute;
+  width: 100%;
+  height: 58px;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 16px 16px;
+}
+
+.titulo{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.bC{
+  background-color: rgba($color: #000000, $alpha: 1.0);
+}
+
+.bordeB{
+  border: none;
+}
+
+.nav-link{
+  width: 100%;
+  border-style: none;
+  color:#000000;
+  background-color: #ffffff;
+  text-align: left;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.navbar-toggler-icon {
+  width: 1.2em;
+  height: 1.2em;
+}
