@@ -13,24 +13,36 @@ export class PlatillosComponent implements OnInit {
   @Output() restarPedido: EventEmitter<Food>=new EventEmitter;
 
   plato:number[]=[]
+  auxPlato!:string|null;
 
   constructor(private food:MenuService) { }
 
+  ngOnInit(): void {
+    console.log(this.list)
+    this.auxPlato = localStorage.getItem('platoNum')
+    this.plato =  this.auxPlato !== null ? JSON.parse(this.auxPlato) : [];
+  }
+
   agregar(item:Food, id:number){
-    if(this.plato[id]==undefined){
+    this.auxPlato = localStorage.getItem('platoNum')
+    this.plato =  this.auxPlato !== null ? JSON.parse(this.auxPlato) : [];
+
+    if(this.plato[id]==null){
       this.plato[id]=0;
     }
     this.plato[id]++;
+    this.food.actualizarPedido('platoNum',this.plato);
     this.enviarPedido.emit(item)
+
   }
 
   eliminar(item:Food, id:number){
+    this.auxPlato = localStorage.getItem('platoNum')
+    this.plato =  this.auxPlato !== null ? JSON.parse(this.auxPlato) : [];
+
     this.plato[id]--;
+
+    this.food.actualizarPedido('platoNum',this.plato);
     this.restarPedido.emit(item)
   }
-
-  ngOnInit(): void {
-    this.plato[0]=0;
-  }
-
 }
