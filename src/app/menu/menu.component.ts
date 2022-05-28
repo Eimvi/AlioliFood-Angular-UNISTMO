@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
   catego:String = 'todos';
 
   pedidoAlmuerzo:Pedido[]=[];
+  auxPedido!:string|null;
 
   constructor(private food:MenuService ) { }
 
@@ -24,6 +25,8 @@ export class MenuComponent implements OnInit {
       resp => {
         this.foods = resp;
         this.clasificar(this.foods);
+        this.auxPedido = localStorage.getItem('pedido')
+        this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
       }
     );
   }
@@ -58,16 +61,22 @@ export class MenuComponent implements OnInit {
       }
       this.pedidoAlmuerzo.push(food2)
     }else{
-      let food = this.pedidoAlmuerzo[id].cantidad++;
+      this.pedidoAlmuerzo[id].cantidad++;
 
     }
+    this.food.actualizarPedido('pedido',this.pedidoAlmuerzo);
   }
 
   pedidoRestar(item2:Food){
     const id = this.pedidoAlmuerzo.findIndex(item=>{
       return item.id == item2.id
     })
-    let food = this.pedidoAlmuerzo[id].cantidad--;
+    this.pedidoAlmuerzo[id].cantidad--;
+
+    if( this.pedidoAlmuerzo[id].cantidad==0){
+      this.pedidoAlmuerzo  = this.pedidoAlmuerzo.filter((item) => item.cantidad !== 0);
+    }
+    this.food.actualizarPedido('pedido',this.pedidoAlmuerzo);
   }
 
 }
