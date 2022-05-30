@@ -29,6 +29,9 @@ export class MenuComponent implements OnInit {
         this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
       }
     );
+
+    this.auxPedido = localStorage.getItem('pedido')
+    this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
   }
 
   clasificar(food:Food[]):void{
