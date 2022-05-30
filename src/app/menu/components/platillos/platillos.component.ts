@@ -18,7 +18,6 @@ export class PlatillosComponent implements OnInit {
   constructor(private food:MenuService) { }
 
   ngOnInit(): void {
-    console.log(this.list)
     this.auxPlato = localStorage.getItem('platoNum')
     this.plato =  this.auxPlato !== null ? JSON.parse(this.auxPlato) : [];
   }
