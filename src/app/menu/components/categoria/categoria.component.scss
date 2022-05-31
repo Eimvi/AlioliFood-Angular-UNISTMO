@@ -1,3 +1,21 @@
+.rows{
+  width: auto;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.scroll{
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.rows button{
+  margin: 5px;
+  width: 100px;
+  font-weight: bold;
+  background: #f6f6f6;
+}
+
 .bcolor{
   background-color: #fffcfc;
   width: 50px;
@@ -12,10 +30,10 @@
 .bcolor2{
   background-color: #fffcfc;
   width: 100px;
-  height: 35px;
-  border-color: rgb(251, 251, 251);
+  height: 30px;
+  border-color: #000000;
+  border: 10%;
   border-radius: 10px;
-  align-items: center;
 }
 .bcolor3{
   background-color: #d5bb7a;
@@ -30,3 +48,4 @@
 .bgcolor{
   background-color: #cfc9c94a;
 }
+
