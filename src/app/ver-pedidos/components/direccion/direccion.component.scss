@@ -4,7 +4,7 @@
 }
 
 .modal-body{
-  margin: 0 20px;
+  margin: 0 10px;
   padding: 0;
 }
 
@@ -21,14 +21,22 @@
   font-size: 15px;
 }
 
+.ubi{
+  margin: 5px auto ;
+}
+
+.flecha{
+  margin: auto auto 0 auto;
+}
 
 .card{
   margin-bottom: 20px;
   height: 50px;
 }
 .card2{
+  margin: auto;
   margin-bottom: 20px;
-  height:67px;
+  height:60px;
 }
 .card3{
   margin-bottom: 20px;
@@ -38,7 +46,10 @@
 }
 
 .msj{
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  text-align: left;
 }
 
 .posicion{
@@ -102,16 +113,10 @@
 .Rectangulod{
   box-sizing: border-box;
   width: 100%;
-  height: auto;
-  left: 41px;
-  top: 178px;
-
+  height: 100%;
   background: #FFFFFF;
-  /* Primary Font Color */
-
   border: 1px solid #373737;
   border-radius: 9px;
-
 }
 .posicion2 p{
 
@@ -165,7 +170,7 @@
 
 .bcRPV{
   width: 100%;
-  height: 83px;
+  height: auto;
   //margin: 0 30px 30px 0;
   background: #EBDDBA;
   border-radius: 15px;
@@ -197,6 +202,8 @@
     align-items: center;
     font-weight: 600;
   }
+
+
   //icono más
   .bi-plus {
     font-size: x-large;
@@ -217,7 +224,7 @@
 
   //icono flecha abajo
   .bi-chevron-down{
-    font-size: 20px;
+    font-size: 15px;
     font-weight:bold !important ;
     color: #373737;
     border:2px;
@@ -247,7 +254,6 @@
 
   .tu{
     text-align: left;
-    padding: 5px 0 0 10px;
     margin: auto;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
@@ -256,13 +262,36 @@
 
   }
 
-  .u{
-    text-align: left;
-    padding: 5px 0 0 10px;
-    margin: auto;
-    font-weight: normal;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    overflow: hidden;
+  @media screen and (max-width:300px){
+    .bcRP{
+      font-size: 14px;
+    }
+
+    .bi-plus{
+      padding-top: 50px;
+      padding-left: 10px;
+      font-size: large;
+    }
+
+    .bi-geo-alt{
+      font-size: 20px;
+    }
+
+    .tu{
+      font-size: 12px;
+    }
+
+    .msj{
+      width: 100%;
+      overflow: hidden;
+      font-size: 12px;
+    }
+
+    .newstyle{
+      font-size: 12px;
+    }
+
+    .col-form-label{
+      font-size: 14px;
+    }
   }
