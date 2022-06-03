@@ -1,0 +1,43 @@
+<div class="" *ngFor="let item of pedidoOrdenado let i = index">
+  <div class="card" >
+    <div class="row">
+      <!--para la imagen-->
+      <div class="col-4 m-0 p-0">
+        <img class="imgP" src={{item.image_url}}>
+      </div>
+
+      <!--para el titulo, subcategoria y botones-->
+      <div class="col">
+
+        <div class="row L2">
+          <div class="col-8">
+            <p class="titulo">{{item.title | titlecase}}</p>
+          </div>
+          <div class="col equis">
+            <button (click)="eleminarOrden(item.id)">
+              <svg width="32" height="32" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.8606 14.1394L14.1396 22.8604" stroke="#EB5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.1394 14.1394L22.8604 22.8604" stroke="#EB5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div  class="row L2">
+          <div class="col">
+            <div class="row alin btns">
+              <button class="col menos" (click)="restarOrden(item, item.id)"  [disabled]="cantidadFood[item.id]==1"><i class="bi bi-dash"></i></button>
+              <p class="col">{{cantidadFood[item.id]}}</p>
+              <button class="col mas" (click)="sumarOrden(item, item.id)"><i class="bi bi-plus"></i></button>
+            </div>
+          </div>
+          <div class="col-8 pre">
+            <p class="price">{{item.price | currency}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
