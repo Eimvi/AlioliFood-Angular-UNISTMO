@@ -14,6 +14,7 @@ export class MenuService {
   private readonly URL =  environment.urlApi;
 
   pedido: Pedido[] = [];
+  numTotal: number[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,7 @@ export class MenuService {
       localStorage.setItem(clave, JSON.stringify(valor))
     }
   }
-  
+
   getCategory() {
     return this.http.get<Categoria>(`${this.URL}category`).pipe(
       map(comida => {
@@ -44,5 +45,15 @@ export class MenuService {
 
   guardarPlatillos(orden:Pedido[]){
     this.pedido = orden;
+  }
+
+  getTotal(orden: Pedido[]):number[]{
+    this.numTotal[0]=0;
+    this.numTotal[1]=0;
+    for(let i=0; i<orden.length;i++ ){
+      this.numTotal[0]+=orden[i].price * orden[i].cantidad;
+      this.numTotal[1]+=orden[i].cantidad;
+    }
+    return this.numTotal;
   }
 }
