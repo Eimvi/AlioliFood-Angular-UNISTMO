@@ -91,3 +91,16 @@ label{
     font-size: medium;
   }
 }
+
+.VPrectangulo{
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0;
+  background: #373737;
+  box-shadow: 0px -4px 8px rgba(24, 23, 43, 0.08);
+  height: 70px;
+}
+
