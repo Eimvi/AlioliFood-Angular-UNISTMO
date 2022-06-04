@@ -56,7 +56,6 @@ export class ListaPlatillosComponent implements OnInit {
     this.pedidoOrdenado  = this.pedidoOrdenado.filter((item) => item.id !== id);
     this.menuService.actualizarPedido('pedido',this.pedidoOrdenado);
 
-
     this.cantidadFood =  this.recuperarCantidad('pedidoNum')
     this.cantidadFood[id]=0;
     this.menuService.actualizarPedido('platoNum',this.cantidadFood);
