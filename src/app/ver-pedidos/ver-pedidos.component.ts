@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Pedido } from '../menu/interfaces/platillos';
 
 @Component({
@@ -7,18 +6,11 @@ import { Pedido } from '../menu/interfaces/platillos';
   templateUrl: './ver-pedidos.component.html',
   styleUrls: ['./ver-pedidos.component.scss']
 })
-export class VerPedidosComponent implements OnInit {
+export class VerPedidosComponent {
   pedidoAlmuerzo:Pedido[] = [];
   validacionP!:boolean;
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
-  regresar(){
-    this.router.navigateByUrl('menu');
-  }
+  constructor() { }
 
   vaciar(){
     localStorage.removeItem('pedido');
