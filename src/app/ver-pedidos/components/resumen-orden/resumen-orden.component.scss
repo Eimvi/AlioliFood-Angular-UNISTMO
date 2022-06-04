@@ -1,0 +1,92 @@
+.bgcolor{
+  background-color: #f6f6f6;;
+  height: 50px;
+  border-color:0;
+}
+
+.bg{
+  background-color: #373737;
+
+}
+.cur{
+  border-radius: 50px 0 0 0;
+
+}
+.cur2{
+  border-radius: 0 0 50px 0;
+
+}
+
+.colorFondo{
+  background-color: #373737;
+  height: 50px;
+  border: 5pc;
+}
+
+.textoResumen{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #FFFFFF;
+  }
+.textoPrecioR{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+text-align: right;
+color: #FFFFFF;
+}
+.textoTotal{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.textoPrecio{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+color: #FFFFFF;
+text-align: right;
+}
+
+.botonS{
+  background: #F6F6F6;
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 60px;
+  border-radius: 15px;
+  border: 5pc;
+  align-items: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #838383;
+}
+
+
+.botonValidado{
+  background: #4BE58B;
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 60px;
+  border-radius: 15px;
+  border: 5pc;
+  align-items: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  color: #373737;
+}
+
+.bodyResumen{
+  width: 100%;
+  bottom: 0px;
+  padding: 0;
+}
