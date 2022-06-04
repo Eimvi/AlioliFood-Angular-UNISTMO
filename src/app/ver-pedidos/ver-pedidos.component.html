@@ -12,7 +12,7 @@
   </div>
   <!--Direccion de envio-->
   <div class="text-center">
-    <app-direccion> </app-direccion>
+    <app-direccion  (valiDireccion)="validarBtnOrden($event)"> </app-direccion>
   </div>
   <!--Metodo de pago-->
   <div>
@@ -35,11 +35,9 @@
     </div>
   </div>
   <!--Lista de platillos-->
-  <div>
-    <app-lista-platillos [pedidoOrdenado]="pedidoAlmuerzo"></app-lista-platillos>
-  </div>
-  <!--Resumen Orden-->
-  <div>
-    <!--Aqui ira la etiqueta del componente resumen orden-->
+  <div class="posicion2">
+    <app-lista-platillos [pedidoOrdenado]="pedidoAlmuerzo" (enviarOrden)="detallesOrden($event)"></app-lista-platillos>
   </div>
 </div>
+<!--Resumen Orden-->
+<app-resumen-orden [sumaPedido]="sumPedido" [envio]="costoEnvio" [pedidoAlmuerzo]="descripcionOrden" [validacionPedido]="validacionP" (valiPlatillos)="validarListaP($event)"></app-resumen-orden>
