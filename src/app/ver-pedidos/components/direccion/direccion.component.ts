@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UbicacionService } from '../../service/ubicacion.service';
 
@@ -16,6 +16,8 @@ export class DireccionComponent implements OnInit {
   direccionG!:string|null;
   bandera:boolean=false;
   mostrarDir:boolean= false;
+  @Output() valiDireccion:EventEmitter<boolean>=new EventEmitter;
+
 
   constructor(private fb:FormBuilder,private ubicacionService:UbicacionService) { }
 
@@ -24,6 +26,7 @@ export class DireccionComponent implements OnInit {
       calle:['',[Validators.required]],
       colonia:['',[Validators.required]]
     });
+
   }
 
   obtenerPermiso(){
@@ -53,18 +56,15 @@ export class DireccionComponent implements OnInit {
   }
 
   confirmar(){
+
     this.confir=true;
     if(this.bandera){
       this.direccionG = localStorage.getItem('dir');
     }else{
       this.direccionG=`${this.formDireccion.get('calle')?.value}, ${this.formDireccion.get('colonia')?.value}`;
-    localStorage.setItem('dir',this.direccionG.toString());
-}
-
-
-
-
-
+      localStorage.setItem('dir',this.direccionG.toString());
+    }
+    this.valiDireccion.emit(this.confir);
   }
 
 }
