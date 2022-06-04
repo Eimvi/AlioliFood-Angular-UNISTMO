@@ -8,7 +8,6 @@ import { Pedido } from '../menu/interfaces/platillos';
 })
 export class VerPedidosComponent {
   pedidoAlmuerzo:Pedido[] = [];
-  validacionP!:boolean;
 
   constructor() { }
 
@@ -16,6 +15,5 @@ export class VerPedidosComponent {
     localStorage.removeItem('pedido');
     localStorage.removeItem('platoNum');
     this.pedidoAlmuerzo =[];
-    this.validacionP=false;
   }
 }
