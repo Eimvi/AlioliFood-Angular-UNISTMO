@@ -22,7 +22,7 @@
           </div>
           <div class="col btns">
             <div class="row alin">
-              <button class="col menos" (click)=" eliminar(item, item.id)" [disabled]="!plato[item.id]">-</button>
+              <button class="col menos" (click)="eliminar(item, item.id)" [disabled]="!plato[item.id]">-</button>
               <ng-container *ngIf="plato[item.id]>0">
                 <p class="col">{{plato[item.id]}}</p>
               </ng-container >

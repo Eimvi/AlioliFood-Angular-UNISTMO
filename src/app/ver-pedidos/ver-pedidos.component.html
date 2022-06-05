@@ -1,4 +1,3 @@
-
 <div class="container-sm espacio">
   <div class="modal-header ">
     <div class="col-2">
@@ -36,7 +35,7 @@
   </div>
   <!--Lista de platillos-->
   <div class="posicion2">
-    <app-lista-platillos [pedidoOrdenado]="pedidoAlmuerzo"></app-lista-platillos>
+    <app-lista-platillos [pedidoOrdenado]="pedidoAlmuerzo" (enviarOrden)="pedidoOrdenado=($event)"></app-lista-platillos>
   </div>
 </div>
 <!--Resumen Orden-->
