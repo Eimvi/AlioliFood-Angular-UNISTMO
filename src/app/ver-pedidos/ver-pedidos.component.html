@@ -11,7 +11,7 @@
   </div>
   <!--Direccion de envio-->
   <div class="text-center">
-    <app-direccion > </app-direccion>
+    <app-direccion (valiDireccion)="validarBtnOrden($event)"> </app-direccion>
   </div>
   <!--Metodo de pago-->
   <div class="text-center">
@@ -39,4 +39,5 @@
   </div>
 </div>
 <!--Resumen Orden-->
-<!--AQUI IRA LA ETIQUETA DE RESUMEN ORDEN-->
+<app-resumen-orden [sumaPedido]="sumPedido" [envio]="costoEnvio" [pedidoAlmuerzo]="descripcionOrden" [validacionPedido]="validacionP" (valiPlatillos)="validarListaP($event)"></app-resumen-orden>
+
