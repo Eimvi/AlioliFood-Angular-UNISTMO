@@ -1,18 +1,18 @@
-<div class="pt-4">
+<div class="mt-4">
   <ng-container *ngIf="!confir; else templateBtnD">
     <button type="button" class="btn btn-outline-secondary bcRP mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Agregar dirección de envio <i class="bi bi-plus"></i></button>
   </ng-container>
   <ng-template #templateBtnD>
-    <button type="button" class="btn btn-outline-secondary bcRPV mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">
-      <div class="row ">
-        <div class="col-2 pt-2 ">
-          <i class="bi bi-geo-alt "></i>
+    <button type="button" class="btn btn-outline-secondary bcRPV p-0" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">
+      <div class="row m-3">
+        <div class="col-2 ubi p-0">
+          <i class="p-0 bi bi-geo-alt "></i>
         </div>
-        <div class="col-8">
+        <div class="col-8 p-0 m-0">
           <p class="tu">Mi ubicación actual</p>
-          <p class="u">{{direccionG}}</p>
+          <p class="msj">{{direccionG}}</p>
         </div>
-        <div class="col-1 ">
+        <div class="col-2 flecha">
           <i class="bi bi-chevron-down"></i>
         </div>
       </div>
@@ -36,13 +36,12 @@
         <form>
 
           <ng-container *ngIf="mostrarDir; else templateX">
-
-            <div class="card2 Rectangulod">
+            <div class="card2 Rectangulod p-0">
               <div (click)="obtenerPermiso()" class="row">
-                <div class="col-2 posicion m-2">
+                <div class="col-2 posicion">
                   <input name="dir" type="radio" checked>
                 </div>
-                <div class="col-9 ">
+                <div class="col-9 pb-2">
                   <p class="newstyle mt-2">Mi ubicación actual</p>
                   <p class="msj">{{direccionG}}</p>
                 </div>
@@ -51,11 +50,10 @@
           </ng-container>
 
           <ng-template #templateX>
-            <div class="btn card Rectangulo">
+            <div class="btn card Rectangulo p-0">
               <div (click)="obtenerPermiso()" class="posicion">
                 <input  name="dir" type="radio">
                 <p class="colr">Mi ubicación actual</p>
-
               </div>
             </div>
 
@@ -66,7 +64,7 @@
             </div>
             <ng-container *ngIf="!botonSelecc; else templateA">
 
-            <div class="btn card Rectangulo">
+            <div class="btn card Rectangulo p-0">
               <div (click)="obtenerDireccion()" class="posicion">
                 <input  name= "dir" type="radio">
                 <p class="colr">Otra ubicación</p>
@@ -74,30 +72,30 @@
             </div>
             </ng-container>
             <ng-template #templateA>
-              <div class="card2 Rectangulod">
+              <div class="card3 Rectangulod p-0">
                 <div class="posicion2">
-                  <div class="posicion m-2">
+                  <div class="posicion mt-2">
                     <input name="dir" type="radio" checked>
                     <p class="newstyle">Otra ubicación</p>
                   </div>
 
                   <form [formGroup]="formDireccion" class="m-2">
-                    <div class="row inputs">
-                      <div class="col-2">
+                    <div class="row inputs p-1">
+                      <div class="col-3 p-0">
                         <label for="exampleFormControlInput1" class="form-label">Calle</label>
                       </div>
-                      <div class="col-9">
+                      <div class="col-8 p-0">
                         <input formControlName="calle" type="text" id="calle" class="form-control form-control-lg" />
                       </div>
                       <div class="text-danger" *ngIf="formDireccion.get('calle')?.hasError('required')&& formDireccion.get('calle')?.touched">
                         *El nombre de la calle es requerido.
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-2">
+                    <div class="row p-1">
+                      <div class="col-3 p-0">
                         <label for="exampleFormControlInput1" class="form-label">Colonia</label>
                       </div>
-                      <div class="col-9">
+                      <div class="col-8 p-0">
                         <input formControlName="colonia" type="text" id="calle" class="form-control form-control-lg" />
                       </div>
                       <div class="text-danger" *ngIf="formDireccion.get('colonia')?.hasError('required')&& formDireccion.get('colonia')?.touched">

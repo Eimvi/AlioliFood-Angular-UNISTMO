@@ -1,15 +1,47 @@
-.bgcolor{
-  background-color: #cfc9c94a;
+.espacio{
+  padding: 0 10px;
+  padding-top: 80px;
 }
+
+.container{
+  margin-bottom: 20px;
+}
+
+.bgcolor{
+  margin-bottom: 20px;
+}
+
+.col-2 button{
+  float: left;
+}
+
+.col-8{
+  margin: auto;
+}
+
+.title{
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
 .bcolor{
   background-color: #fffcfc;
-  width: 50px;
-  height: 50px;
-  border-color: rgb(251, 251, 251);
-  border-radius: 25%;
-  border: 5pc;
-  border-color: #fffcfc;
-  align-items: center;
+  border-radius: 10px;
+  border: 0;
+  width: 45px;
+  height: 45px;
+}
+
+.bi{
+  font-size: large;
+}
+
+.subtitle{
+  float: left;
+  font-size:18px;
+  line-height: 27px;
+  font-weight:700;
 }
 
 .bcolor2{
@@ -28,4 +60,34 @@
   border-radius: 20px;
   border: 5pc;
   align-items: center;
+}
+
+label{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family:  "Poppins";
+}
+
+@media screen and (max-width:350px){
+  label{
+    font-size: 13px;
+  }
+
+  .title{
+    font-size: 16px;
+  }
+
+  .subtitle{
+    font-size: 14px;
+  }
+
+  .bcolor{
+    width: 35px;
+    height: 35px;
+  }
+
+  .bi{
+    font-size: medium;
+  }
 }

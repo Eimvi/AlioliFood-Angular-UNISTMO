@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit {
   catego:string = 'todos';
 
   pedidoAlmuerzo:Pedido[]=[];
+  auxPedido!:string|null;
 
   constructor(private router: Router, private authService:AuthService, private menuService:MenuService) { }
 
@@ -30,8 +31,14 @@ export class MenuComponent implements OnInit {
       resp => {
         this.foods = resp;
         this.clasificar(this.foods);
+        this.auxPedido = localStorage.getItem('pedido')
+        this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
       }
     );
+
+    this.auxPedido = localStorage.getItem('pedido')
+    this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
+  }
 
     this.menuService.getCategory().subscribe(
       resp => {
@@ -55,15 +62,22 @@ export class MenuComponent implements OnInit {
       }
       this.pedidoAlmuerzo.push(food2)
     }else{
+      this.pedidoAlmuerzo[id].cantidad++;
       let food = this.pedidoAlmuerzo[id].cantidad++;
     }
+    this.food.actualizarPedido('pedido',this.pedidoAlmuerzo);
   }
 
   pedidoRestar(item2:Food){
     const id = this.pedidoAlmuerzo.findIndex(item=>{
       return item.id == item2.id
     })
-    let food = this.pedidoAlmuerzo[id].cantidad--;
+    this.pedidoAlmuerzo[id].cantidad--;
+
+    if( this.pedidoAlmuerzo[id].cantidad==0){
+      this.pedidoAlmuerzo  = this.pedidoAlmuerzo.filter((item) => item.cantidad !== 0);
+    }
+    this.food.actualizarPedido('pedido',this.pedidoAlmuerzo);
   }
 
   logout(): void{

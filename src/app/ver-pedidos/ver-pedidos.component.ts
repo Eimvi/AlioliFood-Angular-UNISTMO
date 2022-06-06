@@ -9,6 +9,7 @@ import { Pedido } from '../menu/interfaces/platillos';
 })
 export class VerPedidosComponent {
   pedidoAlmuerzo:Pedido[] = [];
+
   pedidoOrdenado:Pedido[]=[];
   sumPedido:number = 0;
   costoEnvio:number = 20;
@@ -17,6 +18,7 @@ export class VerPedidosComponent {
   validacionPlatillos!:boolean;
   validacionDireccion:boolean=false;
   constructor(private router: Router) { }
+
 
   vaciar(){
     localStorage.removeItem('pedido');
@@ -44,6 +46,7 @@ export class VerPedidosComponent {
     this.validacionPlatillos= valiPlatillos;
   }
 
+
   validarBtnOrden(validacion:boolean){
     this.validacionDireccion=validacion;
     if(this.validacionPlatillos == true && this.validacionDireccion == true){
@@ -52,5 +55,4 @@ export class VerPedidosComponent {
       this.validacionP=false;
     }
   }
-
 }

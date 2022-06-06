@@ -9,13 +9,13 @@ import { ListaPlatillosComponent } from './components/lista-platillos/lista-plat
 import { ResumenOrdenComponent } from './components/resumen-orden/resumen-orden.component';
 
 
+
 @NgModule({
   declarations: [
     VerPedidosComponent,
     DireccionComponent,
     ListaPlatillosComponent,
     ResumenOrdenComponent
-
   ],
   imports: [
     CommonModule,
