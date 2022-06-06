@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Pedido } from 'src/app/menu/interfaces/platillos';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { ResumenOrdenService } from '../../service/resumen-orden.service';
+import { ItemsDto, OrderDto } from '../../interfaces/orden';
 
 @Component({
   selector: 'app-resumen-orden',
@@ -15,9 +17,10 @@ export class ResumenOrdenComponent implements OnInit {
   @Input() validacionDireccion:boolean=false;
   @Output() valiPlatillos:EventEmitter<boolean>=new EventEmitter;
 
-
+  sendPlatillos:ItemsDto[]=[];
   auxPedido!: string|null;
-  constructor(private router: Router) { }
+  sumaPlatillos:number=0;
+  constructor(private router: Router,private resumenOrdenService:ResumenOrdenService) { }
 
   ngOnInit(): void {
     this.auxPedido = localStorage.getItem('pedido');
@@ -34,7 +37,36 @@ export class ResumenOrdenComponent implements OnInit {
   }
 
   pedidoExitoso(){
-    this.router.navigateByUrl("pedido_exitoso")
+    for(let i=0; i<this.pedidoAlmuerzo.length;i++ ){
+      this.sumaPlatillos+=this.pedidoAlmuerzo[i].price * this.pedidoAlmuerzo[i].cantidad;
+      this.sendPlatillos[i]={
+        title:this.pedidoAlmuerzo[i].title,
+        id:this.pedidoAlmuerzo[i].id
+       }
+    }
+
+    const sendOrden: OrderDto={
+      phone:"",
+      name:"",
+      amount: this.sumaPlatillos,
+      shippingCost: this.envio,
+      address: localStorage.getItem('dir'),
+      payment:'efectivo',
+      items: this.sendPlatillos
+    }
+    console.log(sendOrden);
+    this.resumenOrdenService.postOrden(sendOrden).subscribe(
+      resp => {
+        if(sendOrden.payment=='tarjeta'){
+          this.router.navigateByUrl("pago_externo");
+        }else{
+          this.router.navigateByUrl("pedido_exitoso");
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+      )
   }
 
 }
