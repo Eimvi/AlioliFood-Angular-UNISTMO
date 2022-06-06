@@ -1,9 +1,7 @@
-
-
 <div class="container-sm espacio">
   <div class="modal-header ">
     <div class="col-2">
-      <button (click)="regresar()" type="button" class="p-0 btn btn-outline-secondary"><i class="bi bi-chevron-left"></i></button>
+      <button routerLink="/menu" type="button" class="p-0 btn btn-outline-secondary"><i class="bi bi-chevron-left"></i></button>
     </div>
     <div class="col-8 text-center">
       <p>Resumen del pedido</p>
@@ -13,14 +11,14 @@
   </div>
   <!--Direccion de envio-->
   <div class="text-center">
-    <app-direccion  (valiDireccion)="validarBtnOrden($event)"> </app-direccion>
+    <app-direccion (valiDireccion)="validarBtnOrden($event)"> </app-direccion>
   </div>
   <!--Metodo de pago-->
-  <div>
-
+  <div class="text-center">
+    <!--AQUI IRA LA ETIQUETA DE METODO DE PAGO-->
   </div>
   <!--Tu pedido y vaciar-->
-  <div class="row ep-2 ">
+  <div class="row ep-2">
     <div class="col-8 tupedido">
       <p>Tu pedido</p>
     </div>
@@ -37,7 +35,8 @@
   </div>
   <!--Lista de platillos-->
   <div class="posicion2">
-      <app-lista-platillos [pedidoOrdenado]="pedidoAlmuerzo" (enviarOrden)="detallesOrden($event)"></app-lista-platillos>
+    <app-lista-platillos [pedidoOrdenado]="pedidoAlmuerzo" (enviarOrden)="pedidoOrdenado=($event)"></app-lista-platillos>
   </div>
 </div>
+<!--Resumen Orden-->
 <app-resumen-orden [sumaPedido]="sumPedido" [envio]="costoEnvio" [pedidoAlmuerzo]="descripcionOrden" [validacionPedido]="validacionP" (valiPlatillos)="validarListaP($event)"></app-resumen-orden>

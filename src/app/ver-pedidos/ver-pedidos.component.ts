@@ -1,25 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from '../menu/interfaces/platillos';
 import { Router } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
+import { Pedido } from '../menu/interfaces/platillos';
 
 @Component({
   selector: 'app-ver-pedidos',
   templateUrl: './ver-pedidos.component.html',
   styleUrls: ['./ver-pedidos.component.scss']
 })
-export class VerPedidosComponent{
+export class VerPedidosComponent {
+  pedidoAlmuerzo:Pedido[] = [];
   pedidoOrdenado:Pedido[]=[];
   sumPedido:number = 0;
   costoEnvio:number = 20;
   descripcionOrden:Pedido[]=[];
-  pedidoAlmuerzo:Pedido[] = [];
   validacionP!:boolean;
   validacionPlatillos!:boolean;
   validacionDireccion:boolean=false;
-
-
   constructor(private router: Router) { }
+
+  vaciar(){
+    localStorage.removeItem('pedido');
+    localStorage.removeItem('platoNum');
+    this.pedidoAlmuerzo =[];
+    this.validacionP=false;
+    this.detallesOrden(this.pedidoAlmuerzo);
+  }
 
   detallesOrden(orden:Pedido[]){
     this.sumPedido=0;
@@ -33,19 +38,6 @@ export class VerPedidosComponent{
     }else{
       this.validacionPlatillos=false;
     }
-
-  }
-
-  regresar(){
-    this.router.navigateByUrl('menu');
-  }
-
-  vaciar(){
-    localStorage.removeItem('pedido');
-    localStorage.removeItem('platoNum');
-    this.pedidoAlmuerzo =[];
-    this.validacionP=false;
-    this.detallesOrden(this.pedidoAlmuerzo);
   }
 
   validarListaP(valiPlatillos:boolean){
@@ -60,4 +52,5 @@ export class VerPedidosComponent{
       this.validacionP=false;
     }
   }
+
 }

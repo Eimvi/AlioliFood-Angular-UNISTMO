@@ -15,6 +15,7 @@ import { ResumenOrdenComponent } from './components/resumen-orden/resumen-orden.
     DireccionComponent,
     ListaPlatillosComponent,
     ResumenOrdenComponent
+
   ],
   imports: [
     CommonModule,
