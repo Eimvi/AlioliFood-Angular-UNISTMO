@@ -54,7 +54,7 @@ export class ResumenOrdenComponent implements OnInit {
       payment:'efectivo',
       items: this.sendPlatillos
     }
-    console.log(sendOrden);
+
     this.resumenOrdenService.postOrden(sendOrden).subscribe(
       resp => {
         if(sendOrden.payment=='tarjeta'){
@@ -62,9 +62,6 @@ export class ResumenOrdenComponent implements OnInit {
         }else{
           this.router.navigateByUrl("pedido_exitoso");
         }
-      },
-      (error) => {
-        console.log(error);
       }
       )
   }
