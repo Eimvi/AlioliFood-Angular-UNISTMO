@@ -16,7 +16,7 @@ export class DireccionComponent implements OnInit {
   direccionG!:string|null;
   bandera:boolean=false;
   mostrarDir:boolean= false;
-  @Output() valiDireccion:EventEmitter<boolean>=new EventEmitter;
+  @Output() valiDireccion:EventEmitter<boolean>= new EventEmitter;
 
 
   constructor(private fb:FormBuilder,private ubicacionService:UbicacionService) { }
