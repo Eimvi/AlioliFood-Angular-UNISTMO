@@ -31,8 +31,6 @@ export class MenuComponent implements OnInit {
       resp => {
         this.foods = resp;
         this.clasificar(this.foods);
-        this.auxPedido = localStorage.getItem('pedido')
-        this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
       }
     );
 
@@ -63,7 +61,6 @@ export class MenuComponent implements OnInit {
       this.pedidoAlmuerzo.push(food2)
     }else{
       this.pedidoAlmuerzo[id].cantidad++;
-      let food = this.pedidoAlmuerzo[id].cantidad++;
     }
     this.menuService.actualizarPedido('pedido',this.pedidoAlmuerzo);
   }
@@ -87,7 +84,7 @@ export class MenuComponent implements OnInit {
 
   verpedidos(): void{
     this.menuService.guardarPlatillos(this.pedidoAlmuerzo);
-    this.router.navigateByUrl('ver-orden');
+    this.router.navigateByUrl('verpedidos');
   }
 
   clasificar(food:Food[]): void{
