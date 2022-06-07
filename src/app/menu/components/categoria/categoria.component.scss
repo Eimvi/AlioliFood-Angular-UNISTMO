@@ -1,32 +1,25 @@
-.bcolor{
-  background-color: #fffcfc;
-  width: 50px;
-  height: 50px;
-  border-color: rgb(251, 251, 251);
-  border-radius: 25%;
-  border: 5pc;
-  border-color: #fffcfc;
-  align-items: center;
+.rows{
+  width: auto;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.scroll{
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.rows button{
+  margin: 5px;
+  width: 100px;
+  font-weight: bold;
 }
 
 .bcolor2{
-  background-color: #fffcfc;
   width: 100px;
-  height: 35px;
-  border-color: rgb(251, 251, 251);
+  height: 30px;
+  border: 1px solid #373737;
   border-radius: 10px;
-  align-items: center;
-}
-.bcolor3{
-  background-color: #d5bb7a;
-  width: 100%;
-  height: 60px;
-  border-color: rgb(251, 251, 251);
-  border-radius: 20px;
-  border: 5pc;
-  align-items: center;
 }
 
-.bgcolor{
-  background-color: #cfc9c94a;
-}
+

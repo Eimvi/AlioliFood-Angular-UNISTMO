@@ -1,19 +1,14 @@
-<div class=" row   pt-2 pb-2 align-items-center text-center">
-  <div class="col">
-    <button (click)=" opcionCategoria(0)" class="bcolor2 border border-dark">
-      <strong> Todos </strong>
+<div class="rows">
+  <div class="scroll">
+    <button (click)=" opcionCategoria(0)" class="bcolor2 fw-lighter bg-transparent">
+      Todos
     </button>
+    <ng-container *ngFor="let item of list let i = index">
+        <button (click)=" opcionCategoria(item.id)" class="bcolor2 fw-lighter bg-transparent">
+          {{item.name | titlecase}}
+        </button>
+    </ng-container>
   </div>
-
-  <ng-container *ngFor="let item of list let i = index">
-    <div class="col">
-      <button (click)=" opcionCategoria(item.id)" class="bcolor2 border border-dark">
-        <strong> {{item.name | titlecase}}</strong>
-      </button>
-
-    </div>
-
-  </ng-container>
 </div>
 
 
