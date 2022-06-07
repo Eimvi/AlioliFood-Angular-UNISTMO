@@ -1,10 +1,10 @@
 <div class="rows">
   <div class="scroll">
-    <button (click)=" opcionCategoria(0)" class="bcolor2 ">
+    <button (click)=" opcionCategoria(0)" class="bcolor2 fw-lighter bg-transparent">
       Todos
     </button>
     <ng-container *ngFor="let item of list let i = index">
-        <button (click)=" opcionCategoria(item.id)" class="bcolor2 ">
+        <button (click)=" opcionCategoria(item.id)" class="bcolor2 fw-lighter bg-transparent">
           {{item.name | titlecase}}
         </button>
     </ng-container>
