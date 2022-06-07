@@ -18,7 +18,6 @@ export class VistaPedidoComponent implements OnInit {
   ngOnInit(): void {
 
     this.auxPedido = localStorage.getItem('pedido');
-    console.log(this.auxPedido);
     this.pedidoAlmuerzo=this.auxPedido !== null ? JSON.parse(this.auxPedido):[];
     this.sumPlatos=0;
     this.sumTotal=0;
