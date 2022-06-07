@@ -1,18 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-pedido-exitoso',
   templateUrl: './pedido-exitoso.component.html',
   styleUrls: ['./pedido-exitoso.component.scss']
 })
-export class PedidoExitosoComponent implements OnInit {
+export class PedidoExitosoComponent  {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  inicio(): void{
-    this.router.navigateByUrl('auth/login');
-  }
 }
