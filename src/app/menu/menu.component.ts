@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
   postre:Food[]=[];
   categories:Category[]=[];
   catego:string = 'todos';
+  numTotal:number[]=[];
 
   pedidoAlmuerzo:Pedido[]=[];
   auxPedido!:string|null;
@@ -38,7 +39,6 @@ export class MenuComponent implements OnInit {
 
     this.auxPedido = localStorage.getItem('pedido')
     this.pedidoAlmuerzo =  this.auxPedido !== null ? JSON.parse(this.auxPedido) : [];
-  }
 
     this.menuService.getCategory().subscribe(
       resp => {
@@ -65,7 +65,8 @@ export class MenuComponent implements OnInit {
       this.pedidoAlmuerzo[id].cantidad++;
       let food = this.pedidoAlmuerzo[id].cantidad++;
     }
-    this.food.actualizarPedido('pedido',this.pedidoAlmuerzo);
+    this.menuService.actualizarPedido('pedido',this.pedidoAlmuerzo);
+    this.numTotal=this.menuService.getTotal(this.pedidoAlmuerzo);
   }
 
   pedidoRestar(item2:Food){
@@ -77,7 +78,7 @@ export class MenuComponent implements OnInit {
     if( this.pedidoAlmuerzo[id].cantidad==0){
       this.pedidoAlmuerzo  = this.pedidoAlmuerzo.filter((item) => item.cantidad !== 0);
     }
-    this.food.actualizarPedido('pedido',this.pedidoAlmuerzo);
+    this.menuService.actualizarPedido('pedido',this.pedidoAlmuerzo);
   }
 
   logout(): void{
