@@ -1,0 +1,36 @@
+<div class="bodyResumen">
+  <div class="colorFondo">
+    <div class="bgcolor cur2 ">
+    </div>
+  </div>
+  <div class="bgcolor">
+    <div class="cur bg">
+      <div class="container" >
+      <div class="pt-5">
+        <div class="row p-1" *ngFor="let item of pedidoAlmuerzo let i = index">
+          <div class="col"><p class="textoResumen">{{item.title|titlecase}}</p></div>
+          <div class="col-4" ><p class="textoPrecioR">{{(item.price * item.cantidad)|currency}}</p></div>
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col"><p class="textoResumen">Costo envío</p></div>
+        <div class="col-4" ><p class="textoPrecioR">{{envio|currency}}</p></div>
+      </div>
+      <div class="row p-1">
+        <div class="col"><p class="textoTotal">Total</p></div>
+        <div class="col-4"><p class="textoPrecio">{{sumaPedido|currency}}</p></div>
+      </div>
+      </div>
+      <ng-container *ngIf="validacionPedido;else invalido">
+        <div class="container pb-5">
+          <button class="botonValidado pb-2" (click)="pedidoExitoso()">Confirmar Pedido</button>
+        </div>
+      </ng-container>
+      <ng-template #invalido>
+        <div class="container pb-5">
+          <button class="botonS">Confirmar Pedido</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

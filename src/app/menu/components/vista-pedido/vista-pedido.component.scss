@@ -1,0 +1,39 @@
+.row{
+  margin: 0;
+  padding: 0;
+}
+
+.VPrectangulo1{
+  color: #FFFFFF;
+  padding: 0 20px;
+}
+
+.ped{
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.ped1{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.ped2{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+opacity: 0.5;
+}
+
+.total{
+  display:inline-block;
+  width: 60%;
+  height: 60%;
+  background: #696262;
+  border-radius: 15px;
+}

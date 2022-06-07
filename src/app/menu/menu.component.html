@@ -1,25 +1,24 @@
-<div class="container bgcolor pt-4">
-  <div class="container pt-4">
-    <div class=" row pt-4 pb-2 align-items-center text-center">
-      <div class="col-2">
-        <button (click)="logout()" class="bcolor "><label for="exampleFormControlInput1" class="form-label h2"><<strong></strong></label></button>
+<div class="container espacio">
+  <div class="container bgcolor">
+    <div class=" row align-items-center text-center">
+      <div class="col-2 p-0">
+        <button (click)="logout()" class="p-0 bcolor"><i class="bi bi-chevron-left"></i></button>
       </div>
-      <div class="col-7">
-        <label for="exampleFormControlInput1" class="form-label h3">Menú</label>
+      <div class="col-8">
+        <label for="exampleFormControlInput1" class="title form-label">Menú</label>
+      </div>
+      <div class="col-2">
       </div>
     </div>
   </div>
-
-
-  <div class="container">
+  <div class="container p-0">
     <app-categoria [list]="categories" (enviartodo)="enviarTodos($event)"></app-categoria>
   </div>
-
 <!--Container de etiqueta agregar-->
   <div class="container">
-    <div class=" row pt-4 pb-2 align-items-center text-center">
-      <div class="col-9">
-        <label for="exampleFormControlInput1" class="form-label h4"><strong>+ Agregar tus platillos</strong></label>
+    <div class=" row align-items-center text-center">
+      <div class="col-9 p-0">
+        <label for="exampleFormControlInput1" class="subtitle">+ Agrega tus platillos</label>
       </div>
     </div>
   </div>
@@ -28,17 +27,17 @@
   <div class="">
 
     <ng-container *ngIf="catego == 'todos' || catego == 'almuerzos' ">
-      <label for="exampleFormControlInput1" class="form-label h6"><strong>Almuerzos</strong></label>
+      <label for="exampleFormControlInput1" class="form-label">Almuerzos</label>
       <app-platillos (enviarPedido)="obtenerPedido($event)" (restarPedido)="pedidoRestar($event)" [list]="almuerzo"></app-platillos>
     </ng-container>
 
     <ng-container *ngIf="catego == 'todos' || catego == 'entradas'">
-      <label for="exampleFormControlInput1" class="form-label h6"><strong>Entradas</strong></label>
+      <label for="exampleFormControlInput1" class="form-label">Entradas</label>
       <app-platillos (enviarPedido)="obtenerPedido($event)" (restarPedido)="pedidoRestar($event)" [list]="entrada"></app-platillos>
     </ng-container>
 
     <ng-container *ngIf="catego == 'todos' || catego == 'postres'">
-      <label for="exampleFormControlInput1" class="form-label h6"><strong>Postres</strong></label>
+      <label for="exampleFormControlInput1" class="form-label">Postres</label>
       <app-platillos (enviarPedido)="obtenerPedido($event)" (restarPedido)="pedidoRestar($event)" [list]="postre"></app-platillos>
     </ng-container>
 
@@ -48,4 +47,7 @@
     </div>
 
   </div>
+</div>
+<div class="VPrectangulo">
+  <app-vista-pedido [sumPlatos]="numTotal[1]" [sumTotal]="numTotal[0]" ></app-vista-pedido>
 </div>

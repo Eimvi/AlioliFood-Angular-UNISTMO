@@ -1,0 +1,113 @@
+.modal-header{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0;
+}
+
+p{
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.btn{
+  width: 45px;
+  height: 45px;
+  border: 0;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  color: black;
+  text-align:left;
+  text-align: center;
+}
+
+.bi{
+  font-size: large;
+}
+
+.ep-2{
+  margin: 20px 10px;
+}
+
+.col-8 p{
+  margin: auto;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.modal-header h4{
+  margin: 0 auto;
+}
+
+.espacio{
+  padding-top: 80px;
+}
+
+.tupedido{
+  margin: 0;
+  padding: 0;
+}
+
+.tupedido p{
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.vaciar{
+  font-weight: 700;
+  float:right;
+  justify-content: center;
+  color: #EA1C1C;
+  margin: auto;
+}
+
+.vaciar button{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  border: none;
+  background: #f6f6f6;
+}
+
+.vaciar p{
+  margin-left: 2px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+svg{
+  width: 20px;
+  height: 20px;
+}
+
+.posicion2{
+  width: 100%;
+  height: 50vh;
+  overflow: auto;
+}
+
+@media screen and (max-width:350px){
+  .btn{
+    width: 35px;
+    height: 35px;
+  }
+
+  .col-8 p{
+    font-size: 16px;
+  }
+
+  .tupedido p{
+    font-size: 14px;
+  }
+
+  .vaciar p{
+    font-size: 14px;
+  }
+
+  .vaciar button svg{
+    width: 15px;
+    height: 15px;
+  }
+}
+
