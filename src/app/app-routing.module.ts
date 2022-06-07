@@ -13,7 +13,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'auth',
     pathMatch: 'full'
-  }
+  },
+  { path: 'pedido_exitoso', loadChildren: () => import('./pedido-exitoso/pedido-exitoso.module').then(m => m.PedidoExitosoModule) }
 ];
 
 @NgModule({
