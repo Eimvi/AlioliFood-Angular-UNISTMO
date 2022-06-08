@@ -5,13 +5,15 @@ import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component';
 import { PlatillosComponent } from './components/platillos/platillos.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
+import { VistaPedidoComponent } from './components/vista-pedido/vista-pedido.component';
 
 
 @NgModule({
   declarations: [
     MenuComponent,
     PlatillosComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    VistaPedidoComponent
   ],
   imports: [
     CommonModule,
